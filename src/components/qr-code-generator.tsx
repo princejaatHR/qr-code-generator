@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import QRCode from "qrcode";
+import QRCode, { QRCodeErrorCorrectionLevel } from "qrcode";
 import FileSaver from "file-saver";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
@@ -34,6 +34,7 @@ import {
 	Calendar,
 	Copy,
 	Check,
+	Text,
 } from "lucide-react";
 
 export default function QRCodeGenerator() {
@@ -57,7 +58,8 @@ export default function QRCodeGenerator() {
 	});
 
 	const [qrCodeDataURL, setQrCodeDataURL] = useState("");
-	const [errorCorrectionLevel, setErrorCorrectionLevel] = useState("M");
+	const [errorCorrectionLevel, setErrorCorrectionLevel] =
+		useState<QRCodeErrorCorrectionLevel>("M");
 	const [margin, setMargin] = useState(4);
 	const [color, setColor] = useState("#000000");
 	const [backgroundColor, setBackgroundColor] = useState("#ffffff");
@@ -91,17 +93,44 @@ export default function QRCodeGenerator() {
 				qrData = `geo:${location.latitude},${location.longitude}`;
 				break;
 			case "event":
-				const startDate =
-					new Date(event.start)
-						.toISOString()
-						.replace(/[-:]/g, "")
-						.split(".")[0] + "Z";
-				const endDate =
-					new Date(event.end)
-						.toISOString()
-						.replace(/[-:]/g, "")
-						.split(".")[0] + "Z";
-				qrData = `BEGIN:VEVENT\nSUMMARY:${event.title}\nLOCATION:${event.location}\nDESCRIPTION:${event.description}\nDTSTART:${startDate}\nDTEND:${endDate}\nEND:VEVENT`;
+				let startDate = "";
+				let endDate = "";
+
+				// Safely convert dates
+				if (event.start) {
+					const startDateTime = new Date(event.start);
+					if (!isNaN(startDateTime.getTime())) {
+						startDate =
+							startDateTime
+								.toISOString()
+								.replace(/[-:]/g, "")
+								.split(".")[0] + "Z";
+					}
+				}
+
+				if (event.end) {
+					const endDateTime = new Date(event.end);
+					if (!isNaN(endDateTime.getTime())) {
+						endDate =
+							endDateTime
+								.toISOString()
+								.replace(/[-:]/g, "")
+								.split(".")[0] + "Z";
+					}
+				}
+
+				// Only include date fields if they are valid
+				const eventFields = [
+					"BEGIN:VEVENT",
+					`SUMMARY:${event.title || ""}`,
+					`LOCATION:${event.location || ""}`,
+					`DESCRIPTION:${event.description || ""}`,
+					...(startDate ? [`DTSTART:${startDate}`] : []),
+					...(endDate ? [`DTEND:${endDate}`] : []),
+					"END:VEVENT",
+				];
+
+				qrData = eventFields.join("\n");
 				break;
 			default:
 				qrData = url;
@@ -250,34 +279,35 @@ export default function QRCodeGenerator() {
 						value={activeTab}
 						onValueChange={setActiveTab}
 						className='w-full'>
-						<TabsList className='grid grid-cols-4 md:grid-cols-7 mb-4'>
+						<TabsList className='grid grid-cols-7 md:grid-cols-7 mb-4 w-full'>
 							<TabsTrigger value='url'>
-								<LinkIcon className='h-4 w-4 mr-2' />
+								<LinkIcon className='h-4 w-4 md:mr-2' />
 								<span className='hidden sm:inline'>URL</span>
 							</TabsTrigger>
 							<TabsTrigger value='text'>
+								<Text className='h-4 w-4 md:mr-2' />
 								<span className='hidden sm:inline'>Text</span>
 							</TabsTrigger>
 							<TabsTrigger value='email'>
-								<Mail className='h-4 w-4 mr-2' />
+								<Mail className='h-4 w-4 md:mr-2' />
 								<span className='hidden sm:inline'>Email</span>
 							</TabsTrigger>
 							<TabsTrigger value='phone'>
-								<Phone className='h-4 w-4 mr-2' />
+								<Phone className='h-4 w-4 md:mr-2' />
 								<span className='hidden sm:inline'>Phone</span>
 							</TabsTrigger>
 							<TabsTrigger value='wifi'>
-								<Wifi className='h-4 w-4 mr-2' />
+								<Wifi className='h-4 w-4 md:mr-2' />
 								<span className='hidden sm:inline'>WiFi</span>
 							</TabsTrigger>
 							<TabsTrigger value='location'>
-								<MapPin className='h-4 w-4 mr-2' />
+								<MapPin className='h-4 w-4 md:mr-2' />
 								<span className='hidden sm:inline'>
 									Location
 								</span>
 							</TabsTrigger>
 							<TabsTrigger value='event'>
-								<Calendar className='h-4 w-4 mr-2' />
+								<Calendar className='h-4 w-4 md:mr-2' />
 								<span className='hidden sm:inline'>Event</span>
 							</TabsTrigger>
 						</TabsList>
@@ -579,7 +609,11 @@ export default function QRCodeGenerator() {
 							</div>
 							<Select
 								value={errorCorrectionLevel}
-								onValueChange={setErrorCorrectionLevel}>
+								onValueChange={(value) =>
+									setErrorCorrectionLevel(
+										value as QRCodeErrorCorrectionLevel
+									)
+								}>
 								<SelectTrigger id='error-correction'>
 									<SelectValue placeholder='Select error correction level' />
 								</SelectTrigger>
