@@ -103,7 +103,7 @@ export default function AboutPage() {
 						</div>
 						<h3 className='text-xl font-bold mb-2'>Simplicity</h3>
 						<p className='text-muted-foreground'>
-							We believe powerful tools don't have to be
+							We believe powerful tools don&apos;t have to be
 							complicated. Our interface is designed to be
 							intuitive and easy to use.
 						</p>

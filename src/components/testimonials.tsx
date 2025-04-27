@@ -41,7 +41,7 @@ export default function Testimonials() {
 						<CardContent className='pt-6'>
 							<div className='relative'>
 								<div className='absolute -top-6 -left-2 text-6xl text-primary opacity-20'>
-									"
+									&quot;
 								</div>
 								<p className='relative z-10 italic text-muted-foreground'>
 									{testimonial.quote}
