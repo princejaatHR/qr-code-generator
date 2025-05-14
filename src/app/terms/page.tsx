@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
 	return (
-		<div className='container py-12 md:py-16 lg:py-20'>
+		<div className='container mx-auto py-12 md:py-16 lg:py-20'>
 			<div className='max-w-3xl mx-auto'>
 				<h1 className='text-3xl font-bold tracking-tighter sm:text-4xl mb-8'>
 					Terms of Service
@@ -99,7 +99,7 @@ export default function TermsPage() {
 					<h2>10. Contact Us</h2>
 					<p>
 						If you have any questions about these Terms, please
-						contact us at legal@qrcodegenerator.com.
+						contact us at contact@hiketok.com.
 					</p>
 				</div>
 			</div>

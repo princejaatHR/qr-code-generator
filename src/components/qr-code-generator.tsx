@@ -39,8 +39,8 @@ import {
 
 export default function QRCodeGenerator() {
 	const [activeTab, setActiveTab] = useState("url");
-	const [url, setUrl] = useState("https://example.com");
-	const [text, setText] = useState("Hello World");
+	const [url, setUrl] = useState("https://www.hiketok.com");
+	const [text, setText] = useState("Welcome, ");
 	const [email, setEmail] = useState({ address: "", subject: "", body: "" });
 	const [phone, setPhone] = useState("");
 	const [wifi, setWifi] = useState({

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
 	return (
-		<div className='container py-12 md:py-16 lg:py-20'>
+		<div className='container mx-auto py-12 md:py-16 lg:py-20'>
 			<div className='flex flex-col items-center text-center mb-12'>
 				<h1 className='text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl'>
 					Contact Us
@@ -103,7 +103,7 @@ export default function ContactPage() {
 								<div>
 									<h3 className='font-medium'>Email</h3>
 									<p className='text-muted-foreground'>
-										support@qrcodegenerator.com
+										contact@hiketok.com
 									</p>
 								</div>
 							</div>
@@ -112,7 +112,7 @@ export default function ContactPage() {
 								<div>
 									<h3 className='font-medium'>Phone</h3>
 									<p className='text-muted-foreground'>
-										+1 (555) 123-4567
+										+91-7755089819
 									</p>
 								</div>
 							</div>
@@ -121,11 +121,11 @@ export default function ContactPage() {
 								<div>
 									<h3 className='font-medium'>Address</h3>
 									<p className='text-muted-foreground'>
-										123 QR Code Street
+										232, Bamba road, Kalyanpur
 										<br />
-										San Francisco, CA 94103
+										Kanpur, UP, 208017
 										<br />
-										United States
+										India
 									</p>
 								</div>
 							</div>

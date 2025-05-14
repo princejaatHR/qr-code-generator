@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
 	return (
-		<div className='container py-12 md:py-16 lg:py-20'>
+		<div className='container mx-auto py-12 md:py-16 lg:py-20'>
 			<div className='flex flex-col items-center text-center mb-12'>
 				<h1 className='text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl'>
 					About QR Code Generator
