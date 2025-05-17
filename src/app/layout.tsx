@@ -39,7 +39,6 @@ export const metadata = {
 		description:
 			"Generate custom QR codes for your business, personal use, or marketing campaigns. Free, fast, and easy to use.",
 	},
-	generator: "v0.dev",
 };
 
 export default function RootLayout({
