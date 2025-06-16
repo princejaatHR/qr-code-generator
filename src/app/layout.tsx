@@ -52,9 +52,8 @@ export default function RootLayout({
 				{/* Google Search Console Verification */}
 				<meta
 					name='google-site-verification'
-					content='GpJXdXDFGlPlSzIKwXoStonSBvkaHaWnr8swxq_qH5s'
+					content='ghv1qSzPXM1MKBg5S4wvOyHIjTK80UTYahr-94TW3yE'
 				/>
-
 				{/* Google Analytics */}
 
 				{/* Google AdSense */}
