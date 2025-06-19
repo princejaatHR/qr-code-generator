@@ -57,10 +57,8 @@ export default function RootLayout({
 				{/* Google Analytics */}
 
 				{/* Google AdSense */}
-				<script
-					async
-					src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3138751846532107'
-					crossOrigin='anonymous'></script>
+				<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8205857759603005"
+     crossorigin="anonymous"></script>
 			</head>
 			<body className={inter.className}>
 				<ThemeProvider
