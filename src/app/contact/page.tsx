@@ -103,7 +103,7 @@ export default function ContactPage() {
 								<div>
 									<h3 className='font-medium'>Email</h3>
 									<p className='text-muted-foreground'>
-										contact@hiketok.com
+										contact@shoppersking.in
 									</p>
 								</div>
 							</div>
@@ -112,7 +112,7 @@ export default function ContactPage() {
 								<div>
 									<h3 className='font-medium'>Phone</h3>
 									<p className='text-muted-foreground'>
-										+91-7755089819
+										+91-9311740550
 									</p>
 								</div>
 							</div>
@@ -121,11 +121,7 @@ export default function ContactPage() {
 								<div>
 									<h3 className='font-medium'>Address</h3>
 									<p className='text-muted-foreground'>
-										232, Bamba road, Kalyanpur
-										<br />
-										Kanpur, UP, 208017
-										<br />
-										India
+										sector 9, faridabad
 									</p>
 								</div>
 							</div>
