@@ -27,7 +27,7 @@ export const metadata = {
 	openGraph: {
 		type: "website",
 		locale: "en_US",
-		url: "https://www.hiketok.com",
+		url: "https://shoppersking.in/",
 		title: "QR Code Generator | Create Custom QR Codes",
 		description:
 			"Generate custom QR codes for your business, personal use, or marketing campaigns. Free, fast, and easy to use.",
