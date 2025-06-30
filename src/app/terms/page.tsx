@@ -99,7 +99,7 @@ export default function TermsPage() {
 					<h2>10. Contact Us</h2>
 					<p>
 						If you have any questions about these Terms, please
-						contact us at contact@hiketok.com.
+						contact us at contact@shoppersking.in
 					</p>
 				</div>
 			</div>
