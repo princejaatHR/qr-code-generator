@@ -112,7 +112,7 @@ export default function PrivacyPage() {
 					<h2>10. Contact Us</h2>
 					<p>
 						If you have any questions about this Privacy Policy,
-						please contact us at contact@hiketok.com.
+						please contact us at contact@shoppersking.in
 					</p>
 				</div>
 			</div>
